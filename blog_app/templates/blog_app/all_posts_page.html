@@ -1,0 +1,11 @@
+<!doctype html>
+<h2>Blog Posts</h2>
+{% if posts %}
+    <ul>
+    {% for post in posts %}
+        <li><p>{{ post.create_time }} | <a href={% url 'post_details' post.id %}>{{ post.title }}</a> | {{ post.author }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No posts are available.</p>
+{% endif %}

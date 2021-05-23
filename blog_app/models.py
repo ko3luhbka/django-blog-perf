@@ -26,3 +26,8 @@ class BlogPostComment(models.Model):
     content = models.TextField(max_length=4096)
     create_time = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
+    blog_post = models.ForeignKey(
+        BlogPost,
+        on_delete=models.CASCADE,
+        related_name='comments',
+    )
